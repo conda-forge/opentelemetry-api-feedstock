@@ -226,4 +226,3 @@ Feedstock Maintainers
 
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
 
-
