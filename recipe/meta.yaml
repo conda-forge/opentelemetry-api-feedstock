@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-api" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 704a3b2a7511d2c9065013d362a8371bc452ae6c0521941de680af2a5ca94884
+  sha256: e29cacbf1bb0bf6651b92b472fa709be852279821bc6ae357a180adaad51962a
 
 build:
   number: 0
@@ -20,9 +20,9 @@ requirements:
     - pip
     - python
   run:
-    - aiocontextvars  # [py<37 and py>=35]
+    - aiocontextvars  # [py<37]
+    - deprecated >=1.2.6
     - python
-    - typing  # [py<35]
 
 test:
   imports:
