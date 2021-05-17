@@ -20,9 +20,9 @@ requirements:
     - pip
     - python
   run:
-    - aiocontextvars  # [py<37 and py>=35]
+    - aiocontextvars  # [py<37]
+    - deprecated >=1.2.6
     - python
-    - typing  # [py<35]
 
 test:
   imports:
