@@ -20,7 +20,7 @@ requirements:
     - pip
     - python
   run:
-    - aiocontextvars 
+    - aiocontextvars  # [py36]
     - deprecated >=1.2.6
     - python
 
