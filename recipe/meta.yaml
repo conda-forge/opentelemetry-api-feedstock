@@ -11,18 +11,17 @@ source:
   sha256: 67d6685effc8507aae9ef1f5947a7a9cc3ad6c7734fa0876179f40802225fc32
 
 build:
-  number: 0
-  skip: true  # [py2k]
+  number: 1
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.7
   run:
-    - aiocontextvars  # [py36]
     - deprecated >=1.2.6
-    - python
+    - python >=3.7
 
 test:
   imports:
