@@ -3,3 +3,6 @@ bot:
   automerge: true
   # Since we have python selectors in our recipe we can't use this
   # run_deps_from_wheel: true
+github:
+  branch_name: main
+  tooling_branch_name: main
