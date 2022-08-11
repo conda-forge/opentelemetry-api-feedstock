@@ -1,6 +1,6 @@
 {% set name = "opentelemetry-api" %}
 {% set version = "1.12.0" %}
-
+{% set sha256 = "740c2cf9aa75e76c208b3ee04b3b3b3721f58bbac8e97019174f07ec12cde7af" %}
 
 package:
   name: {{ name|lower }}
@@ -8,20 +8,21 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 740c2cf9aa75e76c208b3ee04b3b3b3721f58bbac8e97019174f07ec12cde7af
+  sha256: {{ sha256 }}
 
 build:
   number: 0
-  noarch: python
+  # noarch: python
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python
   run:
     - deprecated >=1.2.6
-    - python >=3.7
+    - python
 
 test:
   imports:
@@ -35,8 +36,12 @@ test:
 about:
   home: https://github.com/open-telemetry/opentelemetry-python/tree/master/opentelemetry-api
   summary: OpenTelemetry Python API
+  license_family: Apache
   license: Apache-2.0
   license_file: LICENSE
+  description: |-
+    This library contains generated code for the semantic conventions
+    defined by the OpenTelemetry specification.
 
 extra:
   recipe-maintainers:
