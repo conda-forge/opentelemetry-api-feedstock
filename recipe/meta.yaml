@@ -1,6 +1,6 @@
 {% set name = "opentelemetry-api" %}
 {% set version = "1.12.0" %}
-
+{% set sha256 = "740c2cf9aa75e76c208b3ee04b3b3b3721f58bbac8e97019174f07ec12cde7af" %}
 
 package:
   name: {{ name|lower }}
@@ -8,20 +8,24 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 740c2cf9aa75e76c208b3ee04b3b3b3721f58bbac8e97019174f07ec12cde7af
+  sha256: {{ sha256 }}
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  # noarch: python
+  skip: true  # [py<36]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python
+    - setuptools
+    - wheel
   run:
     - deprecated >=1.2.6
-    - python >=3.7
+    - aiocontextvars  # [py<37]
+    - python
 
 test:
   imports:
@@ -33,10 +37,18 @@ test:
     - pip
 
 about:
+  summary: OpenTelemetry Python / API
   home: https://github.com/open-telemetry/opentelemetry-python/tree/master/opentelemetry-api
-  summary: OpenTelemetry Python API
   license: Apache-2.0
+  license_family: Apache
   license_file: LICENSE
+  doc_url: https://opentelemetry-python.readthedocs.io/en/latest/
+  doc_source_url: https://github.com/open-telemetry/opentelemetry-python/tree/main/docs
+  description: |-
+    OpenTelemetry, also known as OTel for short, is a vendor-neutral open-source
+    Observability framework for instrumenting, generating, collecting, and exporting
+    telemetry data such as traces, metrics, logs. As an industry-standard
+    it is natively supported by a number of vendors.
 
 extra:
   recipe-maintainers:
