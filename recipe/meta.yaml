@@ -1,14 +1,13 @@
 {% set name = "opentelemetry-api" %}
-{% set version = "1.12.0" %}
-
+{% set version = "1.15.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 740c2cf9aa75e76c208b3ee04b3b3b3721f58bbac8e97019174f07ec12cde7af
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_api-{{ version }}.tar.gz
+  sha256: 79ab791b4aaad27acc3dc3ba01596db5b5aac2ef75c70622c6038051d6c2cded
 
 build:
   number: 0
@@ -22,6 +21,7 @@ requirements:
   run:
     - deprecated >=1.2.6
     - python >=3.7
+    - setuptools >=16.0
 
 test:
   imports:
