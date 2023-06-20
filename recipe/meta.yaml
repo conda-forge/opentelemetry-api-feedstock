@@ -23,7 +23,7 @@ requirements:
     - deprecated >=1.2.6
     - python >=3.7
     - setuptools >=16.0
-    - importlib-metadata 6.*
+    - importlib-metadata ~=6.0.0
 
 test:
   imports:
