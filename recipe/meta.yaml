@@ -24,7 +24,7 @@ requirements:
     - python >=3.8
     - setuptools >=16.0
     #  This should be able to be removed after 3.12 is released if there is a reliable API in importlib.metadata
-    - importlib-metadata >=6.0.0
+    - importlib-metadata >=6.0.0,<7.0.0
 
 test:
   imports:
