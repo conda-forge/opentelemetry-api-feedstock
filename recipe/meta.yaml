@@ -41,7 +41,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  doc_url: https://opentelemetry-python.readthedocs.io/en/latest/
+  doc_url: https://opentelemetry-python.readthedocs.io
   dev_url: https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-api
   description: |-
     OpenTelemetry, also known as OTel for short, is a vendor-neutral open-source
