@@ -23,6 +23,7 @@ requirements:
   run:
     - deprecated >=1.2.6
     - aiocontextvars  # [py<37]
+    - importlib-metadata >=6.0,<7.0
     - python
 
 test:
