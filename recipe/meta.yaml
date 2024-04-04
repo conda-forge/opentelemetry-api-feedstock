@@ -19,8 +19,7 @@ requirements:
   host:
     - pip
     - python
-    - setuptools
-    - wheel
+    - hatchling
   run:
     - deprecated >=1.2.6
     - aiocontextvars  # [py<37]
