@@ -42,7 +42,7 @@ about:
   license_family: Apache
   license_file: LICENSE
   doc_url: https://opentelemetry-python.readthedocs.io/en/latest/
-  doc_source_url: https://github.com/open-telemetry/opentelemetry-python/tree/main/docs
+  dev_url: https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-api
   description: |-
     OpenTelemetry, also known as OTel for short, is a vendor-neutral open-source
     Observability framework for instrumenting, generating, collecting, and exporting
