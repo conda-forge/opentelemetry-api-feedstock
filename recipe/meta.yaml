@@ -10,7 +10,7 @@ source:
   sha256: 77c4985f62f2614e42ce77ee4c9da5fa5f0bc1e1821085e9a47533a9323ae869
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -24,7 +24,7 @@ requirements:
     - python >=3.8
     - setuptools >=16.0
     #  This should be able to be removed after 3.12 is released if there is a reliable API in importlib.metadata
-    - importlib-metadata >=6.0.0,<7.0.0
+    - importlib-metadata >=6.0.0,<7.1.0
 
 test:
   imports:
