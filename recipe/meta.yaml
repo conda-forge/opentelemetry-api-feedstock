@@ -21,6 +21,7 @@ requirements:
     - pip
     - python
     - hatchling
+    - patch
   run:
     - deprecated >=1.2.6
     - importlib-metadata >=6.0,<=8.2.0
