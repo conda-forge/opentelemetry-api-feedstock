@@ -17,12 +17,13 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
+  build:
+    - patch # [not win]
+    - m2-patch  # [win]
   host:
     - pip
     - python
     - hatchling
-    - patch # [not win]
-    - m2-patch  # [win]
   run:
     - deprecated >=1.2.6
     - importlib-metadata >=6.0,<=8.2.0
