@@ -54,6 +54,8 @@ about:
     it is natively supported by a number of vendors.
 
 extra:
+  skip-lints:
+    - invalid_url
   recipe-maintainers:
     - mariusvniekerk
     - marcelotrevisani
