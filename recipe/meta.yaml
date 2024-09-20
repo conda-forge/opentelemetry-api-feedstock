@@ -40,6 +40,7 @@ about:
   summary: OpenTelemetry Python API
   license: Apache-2.0
   license_file: LICENSE
+  dev_url: https://github.com/open-telemetry/opentelemetry-python/tree/master/opentelemetry-api
 
 extra:
   anaconda-services:
