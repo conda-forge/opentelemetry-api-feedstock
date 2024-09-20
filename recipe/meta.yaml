@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-api" %}
-{% set version = "1.26.0" %}
+{% set version = "1.27.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,28 +7,24 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_api-{{ version }}.tar.gz
-  sha256: 2bd639e4bed5b18486fef0b5a520aaffde5a18fc225e808a1ac4df363f43a1ce
-  patches:
-    # added to avoid pip._internal.exceptions.MetadataGenerationFailed: metadata generation failed
-    - patches/0000-fix-classifier-clash-in-pyproject.patch
+  sha256: ed673583eaa5f81b5ce5e86ef7cdaf622f88ef65f0b9aab40b843dcae5bef342
 
 build:
   number: 0
-  skip: true  # [py<38]
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
-  build:
-    - patch # [not win]
-    - m2-patch  # [win]
   host:
     - pip
-    - python
+    - python >=3.8
     - hatchling
   run:
     - deprecated >=1.2.6
-    - importlib-metadata >=6.0,<=8.2.0
-    - python
+    - python >=3.8
+    - setuptools >=16.0
+    #  This should be able to be removed after 3.12 is released if there is a reliable API in importlib.metadata
+    - importlib-metadata >=6.0.0,<7.1.0
 
 test:
   imports:
@@ -40,22 +36,18 @@ test:
     - pip
 
 about:
-  summary: OpenTelemetry Python / API
   home: https://github.com/open-telemetry/opentelemetry-python/tree/master/opentelemetry-api
+  summary: OpenTelemetry Python API
   license: Apache-2.0
-  license_family: Apache
   license_file: LICENSE
-  doc_url: https://opentelemetry-python.readthedocs.io
-  dev_url: https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-api
-  description: |-
-    OpenTelemetry, also known as OTel for short, is a vendor-neutral open-source
-    Observability framework for instrumenting, generating, collecting, and exporting
-    telemetry data such as traces, metrics, logs. As an industry-standard
-    it is natively supported by a number of vendors.
 
 extra:
-  skip-lints:
-    - invalid_url
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/49522
+    reason: Dependency for chainlit
   recipe-maintainers:
+    - ianaobi
+  recipe-maintainers:
+    - rxm7706
     - mariusvniekerk
     - marcelotrevisani
