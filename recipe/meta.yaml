@@ -10,21 +10,20 @@ source:
   sha256: d04a6cf78aad09614f52964ecb38021e248f5714dc32c2e0d8fd99517b4d69cf
 
 build:
-  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - pip
     - python {{ python_min }}
+    - pip
     - hatchling
   run:
-    - deprecated >=1.2.6
     - python >={{ python_min }}
-    - setuptools >=16.0
+    - deprecated >=1.2.6
     #  This should be able to be removed after 3.12 is released if there is a reliable API in importlib.metadata
-    - importlib-metadata >=6.0.0,<7.1.0
+    - importlib-metadata >=6.0,<=8.5.0
 
 test:
   imports:
