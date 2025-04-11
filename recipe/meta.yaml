@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-api" %}
-{% set version = "1.31.1" %}
+{% set version = "1.32.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_api-{{ version }}.tar.gz
-  sha256: 137ad4b64215f02b3000a0292e077641c8611aab636414632a9b9068593b7e91
+  sha256: 2623280c916f9b19cad0aa4280cb171265f19fd2909b0d47e4f06f7c83b02cb5
 
 build:
   noarch: python
