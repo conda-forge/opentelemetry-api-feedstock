@@ -1,6 +1,7 @@
 {% set version = "1.41.1" %}
 
 package:
+  name: opentelemetry-api
   version: {{ version }}
 
 source:
