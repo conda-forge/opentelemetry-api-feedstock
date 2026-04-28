@@ -1,30 +1,27 @@
-{% set name = "opentelemetry-api" %}
 {% set version = "1.41.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: opentelemetry-api
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_api-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/o/opentelemetry-api/opentelemetry_api-{{ version }}.tar.gz
   sha256: 0ad1814d73b875f84494387dae86ce0b12c68556331ce6ce8fe789197c949621
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
     - python {{ python_min }}
-    - pip
     - hatchling
+    - pip
   run:
     - python >={{ python_min }}
-    - deprecated >=1.2.6
-    #  This should be able to be removed after 3.12 is released if there is a reliable API in importlib.metadata
-    - importlib-metadata <8.8.0,>=6.0
-    - typing_extensions >=4.5.0
+    - typing-extensions >=4.5.0
+    - importlib-metadata >=6.0,<8.8.0
 
 test:
   imports:
@@ -37,7 +34,7 @@ test:
     - python {{ python_min }}
 
 about:
-  home: https://github.com/open-telemetry/opentelemetry-python/tree/master/opentelemetry-api
+  home: https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-api
   summary: OpenTelemetry Python API
   license: Apache-2.0
   license_file: LICENSE
