@@ -1,4 +1,4 @@
-{% set version = "1.45.1" %}
+{% set version = "1.45.2" %}
 
 package:
   name: opentelemetry-api
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/o/opentelemetry-api/opentelemetry_api-{{ version }}.tar.gz
-  sha256: aa38ed19bcc084ba42782a73255b3582283eced7ad6dddbd6695189e69adfb75
+  sha256: d7b0008e21e5fd61cbe7a7f34ca3b6905a78ab677d9bc395e299359c75cda6b4
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,6 +21,7 @@ requirements:
   run:
     - python >={{ python_min }}
     - typing-extensions >=4.5.0
+    # - typing_extensions >=4.5.0
     # - typing_extensions >=4.5.0
     # - typing_extensions >=4.5.0
     # - typing_extensions >=4.5.0
